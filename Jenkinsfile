@@ -14,7 +14,7 @@ node('master') {
    
       stage('Compose up') {
          ansiColor('xterm') {
-            sh('docker-compose up -d')
+            sh('docker-compose up -d --force-recreate')
          }
       }
    }
