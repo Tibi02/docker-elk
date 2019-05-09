@@ -20,6 +20,7 @@ services:
       node.name: oktibor-paris
       VIRTUAL_HOST: "es.oktibor.com"
       VIRTUAL_PORT: "9200"
+      ELASTIC_PASSWORD: changeme
     networks:
       - elk
       - nginx
@@ -49,9 +50,11 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     volumes:
-      - ./kibana/config/:/usr/share/kibana/config:ro
+      - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
     environment:
       VIRTUAL_HOST: "kibana.oktibor.com"
+    ports:
+      - "5601:5601"
     networks:
       - nginx
       - elk
