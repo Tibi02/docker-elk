@@ -12,6 +12,12 @@ node('master') {
          }
       }
 
+      stage('Compose down') {
+         ansiColor('xterm') {
+            sh('docker-compose down')
+         }
+      }
+
       stage('Compose pull') {
          ansiColor('xterm') {
             sh('docker-compose build')
