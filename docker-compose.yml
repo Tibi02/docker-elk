@@ -20,7 +20,6 @@ services:
       node.name: oktibor-paris
       VIRTUAL_HOST: "es.oktibor.com"
       VIRTUAL_PORT: "9200"
-      ELASTIC_PASSWORD: changeme
     networks:
       - elk
       - nginx
